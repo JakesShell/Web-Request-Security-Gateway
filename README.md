@@ -8,9 +8,9 @@ This project is positioned as a recruiter-ready backend security demo showing ho
 
 The gateway includes:
 
-- request inspection for obvious suspicious query patterns
-- security header injection on outgoing responses
-- small demo endpoints for allowed and blocked traffic behavior
+- Request Inspection For Obvious Suspicious Query Patterns
+- Security Header Injection On Outgoing Responses
+- Small Demo Endpoints For Allowed And Blocked Traffic Behavior
 
 ## Real-World Business Use Case
 
