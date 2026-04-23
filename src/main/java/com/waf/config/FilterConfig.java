@@ -1,16 +1,20 @@
-package com.waf;
+package com.waf.config;
 
+import com.waf.filter.RequestFilter;
+import com.waf.filter.ResponseFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class FilterConfig {
+
     @Bean
     public FilterRegistrationBean<RequestFilter> requestFilter() {
         FilterRegistrationBean<RequestFilter> registrationBean = new FilterRegistrationBean<>();
         registrationBean.setFilter(new RequestFilter());
-        registrationBean.addUrlPatterns("/*"); // Apply to all URLs
+        registrationBean.addUrlPatterns("/*");
+        registrationBean.setOrder(1);
         return registrationBean;
     }
 
@@ -18,7 +22,8 @@ public class FilterConfig {
     public FilterRegistrationBean<ResponseFilter> responseFilter() {
         FilterRegistrationBean<ResponseFilter> registrationBean = new FilterRegistrationBean<>();
         registrationBean.setFilter(new ResponseFilter());
-        registrationBean.addUrlPatterns("/*"); // Apply to all URLs
+        registrationBean.addUrlPatterns("/*");
+        registrationBean.setOrder(2);
         return registrationBean;
     }
 }
