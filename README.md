@@ -4,6 +4,35 @@ GateWatch is a defensive API security gateway console built with Spring Boot. It
 
 This project upgrades the original `Web-Request-Security-Gateway` into a more complete Cloud + Security Operations portfolio system with a live traffic simulator, event queue, rules engine, metrics API, hardened response headers, Docker support, and CI validation.
 
+## Project Preview
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="screenshots/traffic-simulator-allowed.png" alt="GateWatch allowed request screenshot" width="100%">
+    </td>
+    <td width="50%">
+      <img src="screenshots/traffic-simulator-blocked-query.png" alt="GateWatch blocked query screenshot" width="100%">
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="screenshots/traffic-simulator-blocked-script.png" alt="GateWatch blocked script-like input screenshot" width="100%">
+    </td>
+    <td width="50%">
+      <img src="screenshots/traffic-simulator-path-probe.png" alt="GateWatch blocked path probe screenshot" width="100%">
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="screenshots/traffic-simulator-automation.png" alt="GateWatch automation pattern screenshot" width="100%">
+    </td>
+    <td width="50%">
+      <img src="screenshots/traffic-simulator-rate-limit.png" alt="GateWatch rate limit screenshot" width="100%">
+    </td>
+  </tr>
+</table>
+
 ## Overview
 
 GateWatch is designed to feel like an internal platform security tool used by cloud support, DevOps support, security operations, and application support teams. It demonstrates how a defensive gateway can inspect traffic before it reaches application routes, create operational visibility, and expose useful metrics for review.
