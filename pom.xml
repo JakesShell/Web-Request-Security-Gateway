@@ -1,7 +1,14 @@
-﻿<project xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.waf</groupId>
+    <artifactId>gatewatch-api-security-console</artifactId>
+    <version>1.0.0</version>
+    <name>GateWatch API Security And Traffic Defense Console</name>
+    <description>Defensive API security gateway console for request inspection, event logging, rules review, and traffic simulation.</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -9,12 +16,6 @@
         <version>2.7.18</version>
         <relativePath/>
     </parent>
-
-    <groupId>com.waf</groupId>
-    <artifactId>web-request-security-gateway</artifactId>
-    <version>1.0.0</version>
-    <name>web-request-security-gateway</name>
-    <description>Spring Boot request filtering and security header demo</description>
 
     <properties>
         <java.version>11</java.version>
@@ -25,9 +26,21 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
+        <finalName>gatewatch-api-security-console</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

@@ -1,0 +1,6 @@
+services:
+  gatewatch:
+    build: .
+    container_name: gatewatch-api-security-console
+    ports:
+      - "8080:8080"

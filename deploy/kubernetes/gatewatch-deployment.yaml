@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gatewatch-api-security-console
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gatewatch
+  template:
+    metadata:
+      labels:
+        app: gatewatch
+    spec:
+      containers:
+        - name: gatewatch
+          image: gatewatch-api-security-console:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 10

@@ -1,0 +1,30 @@
+name: GateWatch CI
+
+on:
+  push:
+    branches: [ main, gatewatch-upgrade ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  java-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "11"
+
+      - name: Build with Maven
+        run: |
+          if [ -f "./mvnw" ]; then
+            chmod +x ./mvnw
+            ./mvnw -q -DskipTests package
+          else
+            mvn -q -DskipTests package
+          fi

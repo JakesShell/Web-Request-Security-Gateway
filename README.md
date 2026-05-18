@@ -1,76 +1,112 @@
-﻿# Web Request Security Gateway
+# GateWatch API Security & Traffic Defense Console
+
+GateWatch is a defensive API security gateway console built with Spring Boot. It inspects inbound request patterns, classifies suspicious traffic, injects defensive response headers, records gateway events, and presents request decisions through a polished security operations dashboard.
+
+This project upgrades the original `Web-Request-Security-Gateway` into a more complete Cloud + Security Operations portfolio system with a live traffic simulator, event queue, rules engine, metrics API, hardened response headers, Docker support, and CI validation.
 
 ## Overview
 
-Web Request Security Gateway is a Spring Boot application that demonstrates basic defensive request filtering and response hardening for web applications.
+GateWatch is designed to feel like an internal platform security tool used by cloud support, DevOps support, security operations, and application support teams. It demonstrates how a defensive gateway can inspect traffic before it reaches application routes, create operational visibility, and expose useful metrics for review.
 
-This project is positioned as a recruiter-ready backend security demo showing how a Java web service can inspect incoming HTTP requests, block suspicious patterns, and attach protective response headers.
+## Real-World Use Case
 
-The gateway includes:
+Cloud and platform teams often need to answer:
 
-- Request Inspection For Obvious Suspicious Query Patterns
-- Security Header Injection On Outgoing Responses
-- Small Demo Endpoints For Allowed And Blocked Traffic Behavior
+- Which requests are being allowed or blocked?
+- Which defensive rules are triggering?
+- Are suspicious request patterns appearing repeatedly?
+- Are response security headers active?
+- Can gateway activity be summarized for support and security teams?
+- Is the service ready for Dockerized or cloud deployment?
 
-## Real-World Business Use Case
+GateWatch turns those concerns into a working Spring Boot dashboard and API.
 
-This project maps to realistic backend security workflows used by:
+## Safe Demo Boundary
 
-- Backend Engineers
-- Application Security Teams
-- Platform Engineers
-- Internal Security Review Teams
-- Developers Building Secure APIs
+GateWatch is defensive and educational. The simulator uses safe training markers instead of real attack instructions. It is intended for:
 
-A company may need to answer questions such as:
+- Owned applications
+- Local labs
+- Internal demos
+- Portfolio review
+- Defensive security learning
+- Cloud and DevOps support demonstrations
 
-- How can suspicious request patterns be stopped before they reach core business logic?
-- How can security headers be added consistently across responses?
-- How can a lightweight request filtering layer be demonstrated in a Java application?
-- How can teams prototype secure traffic handling before implementing more advanced controls?
+It should not be used for unauthorized testing.
 
-This kind of project is useful as a proof-of-concept for defensive traffic handling in internal tools, APIs, gateways, and security-minded Java services.
+## Cloud + Security Relevance
+
+This project supports cloud and security operations because it demonstrates:
+
+- API gateway thinking
+- Request inspection
+- Traffic decision logging
+- Security event triage
+- Header hardening
+- Rules-based filtering
+- Rate-limit simulation
+- Health and metrics endpoints
+- Docker readiness
+- CI validation
+- Future fit for cloud edge security and AI-assisted event analysis
 
 ## Key Features
 
-- Request Filtering For Suspicious Query Patterns
-- Response Header Hardening
-- Spring Boot Web Application Structure
-- Demo Health Endpoint
-- Demo Search Endpoint
-- Allowed Request Example
-- Blocked Request Example
+- Java Spring Boot backend
+- Built-in responsive frontend dashboard
+- Defensive request inspection filter
+- Response security header filter
+- Live traffic simulator
+- Gateway event queue
+- Rules engine view
+- Header hardening review
+- Metrics API
+- JSON report endpoint
+- Dockerfile
+- docker-compose support
+- GitHub Actions CI
+
+## API Endpoints
+
+| Method | Endpoint | Purpose |
+|---|---|---|
+| GET | `/` | GateWatch dashboard |
+| GET | `/api/health` | Service health check |
+| GET | `/api/metrics` | Gateway metrics and readiness score |
+| GET | `/api/events` | Recent request decision events |
+| POST | `/api/events/clear` | Clear in-memory event queue |
+| GET | `/api/rules` | Active defensive rules |
+| GET | `/api/headers` | Response hardening controls |
+| GET | `/api/report` | JSON report containing metrics, rules, headers, and events |
+| POST | `/api/simulate/allowed` | Simulate safe business traffic |
+| POST | `/api/simulate/suspicious-query` | Simulate suspicious query pattern |
+| POST | `/api/simulate/script-like` | Simulate script-like input pattern |
+| POST | `/api/simulate/path-probe` | Simulate sensitive path probe |
+| POST | `/api/simulate/automation` | Simulate automation-style client |
+| POST | `/api/simulate/rate-limit` | Simulate request burst behavior |
+| GET | `/gateway/search` | Demo gateway-protected route |
+| GET | `/gateway/orders/status` | Demo gateway-protected route |
 
 ## Tech Stack
 
-- Java
+- Java 11
 - Spring Boot
-- Maven
+- Spring Web
+- Spring Boot Actuator
+- HTML
+- CSS
+- JavaScript
+- Docker
+- GitHub Actions
 
-## Project Structure
+## Run Locally
 
-```text
-Web-Request-Security-Gateway/
-|-- pom.xml
-|-- .gitignore
-|-- README.md
-|-- src/
-|   |-- main/
-|   |   |-- java/
-|   |   |   |-- com/
-|   |   |   |   |-- waf/
-|   |   |   |   |   |-- WafApplication.java
-|   |   |   |   |   |-- config/
-|   |   |   |   |   |   |-- FilterConfig.java
-|   |   |   |   |   |-- controller/
-|   |   |   |   |   |   |-- DemoController.java
-|   |   |   |   |   |-- filter/
-|   |   |   |   |   |   |-- RequestFilter.java
-|   |   |   |   |   |   |-- ResponseFilter.java
-|   |   |-- resources/
-|   |   |   |-- application.properties
-|-- docs/
-|   |-- images/
-|       |-- allowed-request.png
-|       |-- blocked-request.png
+```powershell
+cd "C:\github-audit\Web-Request-Security-Gateway"
+
+if (Test-Path ".\mvnw.cmd") {
+    .\mvnw.cmd spring-boot:run
+} else {
+    mvn spring-boot:run
+}
 
